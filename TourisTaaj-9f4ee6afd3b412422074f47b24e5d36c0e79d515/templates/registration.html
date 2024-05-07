@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        input[type="text"], input[type="number"], select {
+            width: 500px; 
+        }
+    </style>
+     <link rel="stylesheet" href="/static/css/registration.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form action="/save-data/" method="post">
+            {% csrf_token %}
+            <label for="user_">Username:</label>
+            <input type="text" value="{{ username }}" id="user_id" name="user_id" required readonly>
+
+            <label for="yearly_avg_view">Yearly Average View on Travel Page:</label>
+            <input type="number" id="yearly_avg_view" name="yearly_avg_view" min="0" max="100" required>
+
+            <label>Frequent Flyer:</label>
+            <select id="frequentflyer" name="frequentflyer" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            </select>
+            <label for="preferred_device">Preferred Device:</label>
+            <select id="preferred_device" name="preferred_device" required>
+                <option value="mobile">Mobile</option>
+                <option value="tablet">Tablet</option>
+                <option value="laptop">Laptop</option>
+                <option value="desktop">Desktop</option>
+            </select>
+
+            <label for="yearly_avg_outstation_checkins">Yearly Average Outstation Check-ins:</label>
+            <input type="number" id="yearly_avg_outstation_checkins" name="yearly_avg_outstation_checkins" min="1" max="15" required>
+
+            <label for="annual_income_class">Annual Income Class:</label>
+            <select id="annual_income_class" name="annual_income_class" required>
+                <option value="Average">Average</option>
+                <option value="High">High</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <label for="member_in_family">Member in Family:</label>
+            <input type="number" id="member_in_family" name="member_in_family" min="1" max="5" required>
+
+            <label for="booking_hotel">Booking Hotel:</label>
+            <select id="booking_hotel" name="booking_hotel" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label>Preferred Location Type:</label>
+            <table>
+                <tr><td><input type="checkbox" id="beach" name="preferred_location_type" value="Beach" ><label for="beach">Beach</label></td></tr>
+                <tr><td><input type="checkbox" id="big_cities" name="preferred_location_type" value="Big Cities" ><label for="big_cities">Big Cities</label></td></tr>
+                <tr><td><input type="checkbox" id="other" name="preferred_location_type" value="Other" ><label for="other">Other</label></td></tr>
+                <tr><td><input type="checkbox" id="trekking" name="preferred_location_type" value="Trekking"><label for="trekking">Trekking</label></td></tr>
+                <tr><td><input type="checkbox" id="islands" name="preferred_location_type" value="Islands" ><label for="islands">Islands</label></td></tr>
+                <tr><td><input type="checkbox" id="tech_cities" name="preferred_location_type" value="Tech Cities"><label for="tech_cities">Tech Cities</label></td></tr>
+                <tr><td><input type="checkbox" id="historical_site" name="preferred_location_type" value="Historical Site"><label for="historical_site">Historical Site</label></td></tr>
+            </table>
+
+            <label>Working Flag:</label>
+            <select id="working_flag" name="working_flag" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            </select>
+
+            <label for="travelling_rating">Travelling Rating:</label>
+            <input type="number" id="travelling_rating" name="travelling_rating" min="1" max="10" required>
+            <input type="submit" class="btn" value="submit">
+        </form>
+    </div>
+</body>
+</html>
